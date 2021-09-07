@@ -2,7 +2,7 @@ package Start.Day5;
 
 import java.util.Arrays;
 
-public class Exercise6 {
+public class Exercise3 {
     public static void main(String[] args) {
         exercise3();
     }

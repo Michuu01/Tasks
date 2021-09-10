@@ -17,19 +17,58 @@ public class Main {
 
     private static void exercise3() {
         Square s1 = new Square();
-        Square s2 = new Square(3);
-        Square s3 = new Square(5);
-        Square s4 = new Square(6);
-        Square s5 = new Square(6);
+        Square s2 = new Square(5);
+        Square s3 = new Square(3);
+        Square s4 = new Square(43);
+        Square s5 = new Square(9);
+        Square s6 = new Square(7);
 
-        Square[] squares = new Square[5];
+        Square[] squares = new Square[6];
         squares[0] = s1;
         squares[1] = s2;
         squares[2] = s3;
         squares[3] = s4;
         squares[4] = s5;
+        squares[5] = s6;
 
-        System.out.println(Arrays.toString(squares));
+        Square[] duplicate = duplicate(squares);
+        System.out.println(Arrays.toString(duplicate));
+    }
+
+    private static Square[] duplicate(Square[] array) {
+
+
+        sort(array);
+        int sizeOfNoneDuplicate = 1;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (!array[i].equals(array[i + 1])) {
+                sizeOfNoneDuplicate++;
+            }
+        }
+
+        Square[] temp = new Square[sizeOfNoneDuplicate];
+        int j = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (!array[i].equals(array[i + 1])) {
+                temp[j++] = array[i];
+            }
+        }
+        temp[j] = array[array.length - 1];
+        return temp;
+    }
+
+    private static void sort(final Square[] array) {
+        Square temp;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i].area() > array[j].area()) {
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+
+            }
+        }
     }
 
 }

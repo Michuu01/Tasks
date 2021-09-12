@@ -15,7 +15,7 @@ public class Exercise2 {
         String[] reversed = new String[d.length];
         System.out.println("original: " + Arrays.asList(d));
         for (int i = 0; i < d.length; i++) {
-            reversed[d.length - i - 1] = d[i];
+           reversed[d.length - i - 1] = d[i];
         }
         System.out.println("reversed: " + Arrays.toString(reversed));
 
